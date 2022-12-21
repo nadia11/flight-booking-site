@@ -1,9 +1,12 @@
 import Datepicker from 'flowbite-datepicker/Datepicker';
-function Form(){
+import {useState} from "react";
+import Table from "../components/Table";
+function Form(props){
   // const datepicker = document.getElementById('datepickerId');
   // new Datepicker(datepicker, {
   //   // options
   // });
+  const [searchState,setSearchState] = useState(false);
   return(
     <>
 
@@ -142,12 +145,54 @@ function Form(){
           </div>
         </div>
       </div>
-      <button
-        className="shadow float-right bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-        type="button">
-        SEARCH
-      </button>
+
+      <div className="grid grid-cols-3">
+        <div className="flex items-center mb-4">
+          <input id="default-checkbox" type="checkbox" value=""
+                 className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+            <label htmlFor="default-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Extra options</label>
+        </div>
+        <ul
+          className="items-center  text-sm font-medium text-gray-900 bg-white  sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+          <li >
+            <div className="flex items-center pl-3">
+              <input id="horizontal-list-radio-license" type="radio" value="" name="list-radio"
+                     className=" text-blue-600"/>
+                <label htmlFor="horizontal-list-radio-license"
+                       className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Driver
+                  License </label>
+            </div>
+          </li>
+          <li >
+            <div className="flex items-center pl-3">
+              <input id="horizontal-list-radio-id" type="radio" value="" name="list-radio"
+                     className="text-blue-600"/>
+                <label htmlFor="horizontal-list-radio-id"
+                       className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">State
+                  ID</label>
+            </div>
+          </li>
+
+          <li>
+            <div className="flex items-center pl-3">
+              <input id="horizontal-list-radio-passport" type="radio" value="" name="list-radio"
+                     className="text-blue-600"/>
+                <label htmlFor="horizontal-list-radio-passport"
+                       className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">US
+                  Passport</label>
+            </div>
+          </li>
+        </ul>
+
+        <button
+          className=" shadow md:w-1/3  bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+          type="button" onClick={()=>setSearchState(true)}>
+          SEARCH
+        </button>
+      </div>
+
     </form>
+      <Table data={props.data} searchState={searchState}/>
     </>
   );
 }
