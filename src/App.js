@@ -19,7 +19,10 @@ useEffect(()=> {
     <div className="App">
 
       <Navbar/>
-      <Form data={data}/>
+      <div className="container mx-auto px-10">
+        <Form data={data}/>
+      </div>
+
 
 
     </div>

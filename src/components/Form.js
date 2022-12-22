@@ -14,6 +14,7 @@ function Form(props) {
     <>
 
       <form className="m-5">
+        <div className="border-b-2 border-blue-800 mb-2">
         <div className="inline-flex rounded-md shadow-sm mb-4" role="group">
           <button type="button"
                   className="py-2 px-4 text-sm font-medium text-gray-900 bg-transparent rounded-l-lg border border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
@@ -137,7 +138,7 @@ function Form(props) {
             </div>
           </div>
         </div>
-
+</div>
         <div className="grid grid-cols-3">
           <div className="flex items-center mb-4">
             <input id="default-checkbox" type="checkbox" value=""
@@ -176,12 +177,13 @@ function Form(props) {
               </div>
             </li>
           </ul>
-
+<div>
           <button
-            className=" shadow md:w-1/3  bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            className=" shadow md:w-1/3 bg-blue-800 text-white font-bold py-2 px-4 rounded float-right"
             type="button" onClick={() => setSearchState(true)}>
             SEARCH
           </button>
+</div>
         </div>
 
       </form>
