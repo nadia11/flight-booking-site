@@ -1,6 +1,5 @@
 function Table(props){
-  const oddClass="bg-gray-200";
-    const evenClass="bg-white"
+
  return(
 
    <div className={props.searchState===true?"relative shadow-md sm:rounded-lg":"hidden"}>
@@ -37,11 +36,11 @@ function Table(props){
        </tr>
        </thead>
        <tbody>
-       {props?.data?.current?.flightOffer?.map((item1,index1)=>{
+       {props?.data?.current?.flightOffer?.map((item1,index)=>{
    return  item1?.itineraries[0]?.segments?.map((item2,index2)=>{
    return(
 
-             <tr className={(index1%2===0)?("bg-red-500"+(index2%2===0)?(""):"border-b-2 border-red-200"):("bg-white"+(index2%2)===0?(""):"border-b-2 border-red-200")} >
+             <tr className="odd:bg-gray-300 even:bg-white" >
                <td scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                  {item2.carrierCode +" " +item2.aircraft}
                </td>
@@ -71,9 +70,9 @@ function Table(props){
                </td>
 
              </tr>
-
    )}
-   )})}
+   )}
+       )}
        </tbody>
      </table>
    </div>
